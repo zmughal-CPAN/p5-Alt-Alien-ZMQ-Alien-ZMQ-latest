@@ -28,3 +28,7 @@ build_script:
 
 test_script:
   - "dzil test --release --keep-build-dir"
+  - "set PERL_ALT_INSTALL=OVERWRITE"
+  - "dzil install"
+  - "set PERL_CPANM_OPT="
+  - "cpanm --test-only --verbose ZMQ::LibZMQ3"
