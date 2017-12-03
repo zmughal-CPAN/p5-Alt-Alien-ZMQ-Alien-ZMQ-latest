@@ -12,7 +12,7 @@ sub _source {
 }
 
 sub inc_dir {
-	join ' ', map { s/^-I//r; }
+	join ' ', map { s/^-I//; $_ }
 		grep { /^-I/ }
 		shellwords( Alien::ZMQ::latest->cflags );
 }
