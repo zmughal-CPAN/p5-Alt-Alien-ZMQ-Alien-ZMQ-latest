@@ -4,15 +4,27 @@ cache:
     # local::lib caching
     - $HOME/perl5
     - maint/cpanfile-git-log
-perl:
-  - "5.8"
-  - "5.10"
-  - "5.22"
-  - "blead"             # builds perl from git
 matrix:
   include:
-    - perl: 5.18
+    - perl: "5.16"
+      os: linux
+      dist: trusty
+      sudo: false
+    - perl: "5.18"
       env: COVERAGE=1   # enables coverage+coveralls reporting
+      os: linux
+      dist: trusty
+      sudo: false
+    - perl: "5.20"
+      os: linux
+      dist: trusty
+      sudo: false
+    - perl: "blead"
+      os: linux
+      dist: trusty
+      sudo: false
+    - perl: "system"
+      os: osx
   allow_failures:
     - perl: blead       # ignore failures for blead perl
 sudo: false             # faster builds as long as you don't need sudo access
