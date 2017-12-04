@@ -1,4 +1,9 @@
 language: perl
+cache:
+  directories:
+    # local::lib caching
+    - $HOME/perl5
+    - maint/cpanfile-git-log
 perl:
   - "5.8"
   - "5.10"
