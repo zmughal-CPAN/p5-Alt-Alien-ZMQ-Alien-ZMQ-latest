@@ -10,6 +10,7 @@ platform:
   - x64
 
 install:
+  - set TMPDIR=%APPVEYOR_BUILD_FOLDER%\tmp
   - choco install --allowemptychecksum strawberryperl
   - path C:\strawberry\perl\bin;C:\strawberry\perl\site\bin;C:\strawberry\c\bin;%PATH%
   - "cpan App::cpanminus"
