@@ -37,4 +37,5 @@ script:
   - perl Makefile.PL && make test
   - make install
   - export ARCHFLAGS='-arch x86_64';
-  - command cpanm --test-only ZMQ::LibZMQ3 --build-args 'OTHERLDFLAGS=' --verbose
+  - "perl ./maint/install-zmq-libzmq.pl ZMQ::LibZMQ3"
+  - "perl ./maint/install-zmq-libzmq.pl ZMQ::LibZMQ4"
