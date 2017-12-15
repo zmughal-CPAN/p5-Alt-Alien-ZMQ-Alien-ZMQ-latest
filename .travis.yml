@@ -37,5 +37,5 @@ script:
   - perl Makefile.PL && make test
   - make install
   - export ARCHFLAGS='-arch x86_64';
-  - "perl ./maint/install-zmq-libzmq.pl ZMQ::LibZMQ3"
-  - "perl ./maint/install-zmq-libzmq.pl ZMQ::LibZMQ4"
+  - "perl ./maint/install-zmq-libzmq.pl --test-only ZMQ::LibZMQ3"
+  - "perl ./maint/install-zmq-libzmq.pl --test-only ZMQ::LibZMQ4"
