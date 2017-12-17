@@ -14,12 +14,12 @@ sub cpanm {
 		$PERL_ALT_INSTALL = 'OVERWRITE';
 	}
 
-	my @non_zmq_libzmq_args = grep { $_ !~ /^ZMQ::LibZMQ[34]$/ } @args;
+	my @non_alien_zmq_dep_args = grep { $_ !~ /^(ZMQ::LibZMQ[34]|Net::Async::ZMQ)$/ } @args;
 
-	if( grep { $_ !~ /^--?/ } @non_zmq_libzmq_args ) {
+	if( grep { $_ !~ /^--?/ } @non_alien_zmq_dep_args ) {
 		# if what remains is not an option
-		my $exit_non_zmq_libzmq = system(qw(cpanm), @default, @non_zmq_libzmq_args);
-		die "cpanm @non_zmq_libzmq_args failed" if $exit_non_zmq_libzmq;
+		my $exit_non_azmq = system(qw(cpanm), @default, @non_alien_zmq_dep_args);
+		die "cpanm @non_alien_zmq_dep_args failed" if $exit_non_azmq;
 	}
 
 	if( $^O eq 'MSWin32' ) {
