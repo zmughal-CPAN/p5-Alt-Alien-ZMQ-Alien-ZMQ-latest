@@ -14,7 +14,7 @@ sub cpanm {
 		$PERL_ALT_INSTALL = 'OVERWRITE';
 	}
 
-	my @non_alien_zmq_dep_args = grep { $_ !~ /^(ZMQ::LibZMQ[34]|Net::Async::ZMQ)$/ } @args;
+	my @non_alien_zmq_dep_args = grep { $_ !~ /^(ZMQ::(LibZMQ[34]|FFI)|Net::Async::ZMQ)$/ } @args;
 
 	if( grep { $_ !~ /^--?/ } @non_alien_zmq_dep_args ) {
 		# if what remains is not an option
